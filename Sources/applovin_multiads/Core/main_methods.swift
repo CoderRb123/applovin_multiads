@@ -12,11 +12,11 @@
 import AppLovinSDK
 
 
-class MainMethods  {
+public class MainMethods  {
     
     @MainActor static var shared: MainMethods = MainMethods()
 
-    func initAlSdk(sdkKey: String) {
+   public func initAlSdk(sdkKey: String) {
         let initConfig = ALSdkInitializationConfiguration(sdkKey: sdkKey) { builder in
 
           builder.mediationProvider = ALMediationProviderMAX

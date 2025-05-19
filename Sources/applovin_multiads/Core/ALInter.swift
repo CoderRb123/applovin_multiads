@@ -11,7 +11,7 @@ import SwiftUI
 import MultiAdsInterface
 
 @available(iOS 13.0, *)
-class ALInter: UIViewController, @preconcurrency MAAdDelegate
+public class ALInter: UIViewController, @preconcurrency MAAdDelegate
 {
     @MainActor static var shared: ALInter = ALInter()
     var adModuleCallBacks: AdModuleWithCallBacks?
@@ -20,7 +20,7 @@ class ALInter: UIViewController, @preconcurrency MAAdDelegate
     var retryAttempt = 0.0
    
     
-  func createInterstitialAd()
+    public func createInterstitialAd()
   {
     var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
     placementId = "dd6ae7075e4cbfb9"
@@ -32,7 +32,7 @@ class ALInter: UIViewController, @preconcurrency MAAdDelegate
 
   // MARK: MAAdDelegate Protocol
 
-  func didLoad(_ ad: MAAd)
+    public func didLoad(_ ad: MAAd)
   {
     var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
     placementId = "dd6ae7075e4cbfb9"
@@ -40,25 +40,25 @@ class ALInter: UIViewController, @preconcurrency MAAdDelegate
     retryAttempt = 0
   }
 
-  func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError)
+    public func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError)
   {
    
       adModuleCallBacks?.onLoadFailed?()
    
   }
 
-  func didDisplay(_ ad: MAAd) {}
+    public func didDisplay(_ ad: MAAd) {}
 
-  func didClick(_ ad: MAAd) {}
+    public func didClick(_ ad: MAAd) {}
 
-  func didHide(_ ad: MAAd)
+    public func didHide(_ ad: MAAd)
   {
       print("On Ad Dismiss")
       adModuleCallBacks?.onCloseEvent?()
    
   }
 
-  func didFail(toDisplay ad: MAAd, withError error: MAError)
+    public func didFail(toDisplay ad: MAAd, withError error: MAError)
   {
     // Interstitial ad failed to display. AppLovin recommends that you load the next ad.
     interstitialAd.load()
