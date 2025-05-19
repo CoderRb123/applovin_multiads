@@ -7,7 +7,9 @@ import SwiftUICore
 
 @available(iOS 13.0, *)
 public class AppLovingNetworkInterface : @preconcurrency NetworkInterface{
-    
+    public init(){
+        
+    }
     
     @MainActor public func initNetwork() -> Bool {
         var sdkKey = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.configId ?? ""
