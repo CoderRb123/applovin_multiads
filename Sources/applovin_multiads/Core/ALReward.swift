@@ -7,15 +7,22 @@
 
 import AppLovinSDK
 import SwiftUI
+import MultiAdsInterface
 
+@available(iOS 13.0, *)
 class ALReward : UIViewController, @preconcurrency  MARewardedAdDelegate
 {
+    
+    @MainActor static var shared: ALReward = ALReward()
+    var adModuleCallBacks: AdModuleWithCallBacks?
   var rewardedAd: MARewardedAd!
   var retryAttempt = 0.0
 
   func createRewardedAd()
   {
-    rewardedAd = MARewardedAd.shared(withAdUnitIdentifier: "«ad-unit-ID»")
+    var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.rewardId
+    placementId = "0971e0e0696bce3e"
+    rewardedAd = MARewardedAd.shared(withAdUnitIdentifier:placementId ?? "")
     rewardedAd.delegate = self
 
     // Load the first ad
@@ -26,23 +33,15 @@ class ALReward : UIViewController, @preconcurrency  MARewardedAdDelegate
 
   func didLoad(_ ad: MAAd)
   {
-    // Rewarded ad is ready to show. '[self.rewardedAd isReady]' now returns 'YES'.
-
-    // Reset retry attempt
-    retryAttempt = 0
+      var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.rewardId
+      placementId = "0971e0e0696bce3e"
+      rewardedAd.show(forPlacement: placementId)
+      retryAttempt = 0
   }
 
   func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError)
   {
-    // Rewarded ad failed to load
-    // AppLovin recommends that you retry with exponentially higher delays up to a maximum delay (in this case 64 seconds).
-
-    retryAttempt += 1
-    let delaySec = pow(2.0, min(6.0, retryAttempt))
-
-    DispatchQueue.main.asyncAfter(deadline: .now() + delaySec) {
-      self.rewardedAd.load()
-    }
+      adModuleCallBacks?.onLoadFailed?()
   }
 
   func didDisplay(_ ad: MAAd) {}
@@ -51,20 +50,21 @@ class ALReward : UIViewController, @preconcurrency  MARewardedAdDelegate
 
   func didHide(_ ad: MAAd)
   {
-    // Rewarded ad is hidden. Pre-load the next ad
-    rewardedAd.load()
+      print("On Did Hide")
+//      adModuleCallBacks?.onCloseEvent?()
   }
 
   func didFail(toDisplay ad: MAAd, withError error: MAError)
   {
-    // Rewarded ad failed to display. AppLovin recommends that you load the next ad.
-    rewardedAd.load()
+     
+      adModuleCallBacks?.onFailed?()
   }
 
   // MARK: MARewardedAdDelegate Protocol
 
   func didRewardUser(for ad: MAAd, with reward: MAReward)
   {
-    // Rewarded ad was displayed and user should receive the reward
+      print("On Did User")
+      adModuleCallBacks?.onCloseEvent?()
   }
 }

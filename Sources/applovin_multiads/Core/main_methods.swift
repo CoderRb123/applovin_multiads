@@ -14,10 +14,10 @@ import AppLovinSDK
 
 class MainMethods  {
     
-    
-    
-    func initAlSdk() {
-        let initConfig = ALSdkInitializationConfiguration(sdkKey: "«SDK-key»") { builder in
+    @MainActor static var shared: MainMethods = MainMethods()
+
+    func initAlSdk(sdkKey: String) {
+        let initConfig = ALSdkInitializationConfiguration(sdkKey: sdkKey) { builder in
 
           builder.mediationProvider = ALMediationProviderMAX
             builder.segmentCollection = MASegmentCollection { segmentCollectionBuilder in
@@ -31,6 +31,8 @@ class MainMethods  {
         settings.termsAndPrivacyPolicyFlowSettings.privacyPolicyURL = URL(string: "https://dailyrewardlinks.com/privacy-policy")
         ALSdk.shared().initialize(with: initConfig) { sdkConfig in
             // Start loading ads
+            print("AppLovin Sdk Configured")
+            print(sdkConfig.description)
           }
     }
 }

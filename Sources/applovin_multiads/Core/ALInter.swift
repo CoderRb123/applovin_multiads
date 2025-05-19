@@ -22,7 +22,8 @@ class ALInter: UIViewController, @preconcurrency MAAdDelegate
     
   func createInterstitialAd()
   {
-    let placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
+    var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
+    placementId = "dd6ae7075e4cbfb9"
     interstitialAd = MAInterstitialAd(adUnitIdentifier: placementId ?? "")
     interstitialAd.delegate = self
     // Load the first ad
@@ -33,22 +34,17 @@ class ALInter: UIViewController, @preconcurrency MAAdDelegate
 
   func didLoad(_ ad: MAAd)
   {
-    let placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
+    var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
+    placementId = "dd6ae7075e4cbfb9"
     interstitialAd.show(forPlacement: placementId)
     retryAttempt = 0
   }
 
   func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError)
   {
-    // Interstitial ad failed to load
-    // AppLovin recommends that you retry with exponentially higher delays up to a maximum delay (in this case 64 seconds)
-
-    retryAttempt += 1
-    let delaySec = pow(2.0, min(6.0, retryAttempt))
-
-    DispatchQueue.main.asyncAfter(deadline: .now() + delaySec) {
-      self.interstitialAd.load()
-    }
+   
+      adModuleCallBacks?.onLoadFailed?()
+   
   }
 
   func didDisplay(_ ad: MAAd) {}
