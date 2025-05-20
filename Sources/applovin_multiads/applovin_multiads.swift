@@ -38,8 +38,8 @@ public class AppLovingNetworkInterface : @preconcurrency NetworkInterface{
         return AnyView(VStack{})
     }
     
-    public func getBannerAd(from: String?) -> AnyView {
-        return AnyView(VStack{})
+    @MainActor public func getBannerAd(from: String?) -> AnyView {
+        return AnyView(AlBanner())
     }
     
    
