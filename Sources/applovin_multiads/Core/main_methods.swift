@@ -16,7 +16,7 @@ public class MainMethods  {
     
     @MainActor static var shared: MainMethods = MainMethods()
 
-   public func initAlSdk(sdkKey: String) {
+    public func initAlSdk(sdkKey: String, onSdkInit : @escaping () -> Void) {
         let initConfig = ALSdkInitializationConfiguration(sdkKey: sdkKey) { builder in
 
           builder.mediationProvider = ALMediationProviderMAX
@@ -31,6 +31,7 @@ public class MainMethods  {
         settings.termsAndPrivacyPolicyFlowSettings.privacyPolicyURL = URL(string: "https://dailyrewardlinks.com/privacy-policy")
         ALSdk.shared().initialize(with: initConfig) { sdkConfig in
             // Start loading ads
+            onSdkInit()
             print("AppLovin Sdk Configured")
             print(sdkConfig.description)
           }

@@ -12,7 +12,7 @@ let package = Package(
             targets: ["applovin_multiads"]),
     ],
     dependencies : [
-        .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",from: "1.0.4"),
+        .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",from: "1.1.4"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

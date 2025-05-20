@@ -51,7 +51,7 @@ public class ALReward : UIViewController, @preconcurrency  MARewardedAdDelegate
     public func didHide(_ ad: MAAd)
   {
       print("On Did Hide")
-//      adModuleCallBacks?.onCloseEvent?()
+      adModuleCallBacks?.onCloseEvent?()
   }
 
     public func didFail(toDisplay ad: MAAd, withError error: MAError)
@@ -65,6 +65,6 @@ public class ALReward : UIViewController, @preconcurrency  MARewardedAdDelegate
     public func didRewardUser(for ad: MAAd, with reward: MAReward)
   {
       print("On Did User")
-      adModuleCallBacks?.onCloseEvent?()
+//      adModuleCallBacks?.onCloseEvent?()
   }
 }
