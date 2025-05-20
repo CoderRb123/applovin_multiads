@@ -20,7 +20,9 @@ let package = Package(
         .target(
             name: "applovin_multiads",
             dependencies: ["MultiAdsInterface","AppLovinSDKMultiads"],
-        
+//            resources: [
+//             .process("Resources")
+//           ]
         ),
         
             .binaryTarget(

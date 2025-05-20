@@ -35,7 +35,7 @@ public class AppLovingNetworkInterface : @preconcurrency NetworkInterface{
     }
     
     public func getNativeAd(height: Double?, width: Double?, from: String?) -> AnyView {
-        return AnyView(VStack{})
+        return AnyView(AlNativeView())
     }
     
     @MainActor public func getBannerAd(from: String?) -> AnyView {
