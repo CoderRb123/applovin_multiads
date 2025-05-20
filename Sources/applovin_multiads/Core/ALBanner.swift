@@ -51,11 +51,15 @@ extension AlBannerBase
 
     func didLoad(_ ad: MAAd) {}
 
-    func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {}
+    func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {
+        print("On Banner Failed to load: \(error.description)")
+    }
 
     func didClick(_ ad: MAAd) {}
 
-    func didFail(toDisplay ad: MAAd, withError error: MAError) {}
+    func didFail(toDisplay ad: MAAd, withError error: MAError) {
+        print("on Banner failed to display: \(error.description)")
+    }
 
     // MARK: MAAdViewAdDelegate Protocol
 
