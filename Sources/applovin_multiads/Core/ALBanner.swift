@@ -20,8 +20,6 @@ struct AlBannerBase: UIViewRepresentable
       builder.adaptiveType = .anchored
     }
       var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.bannerId
-      placementId = "22a9296481aa34b0"
-
     let adView = MAAdView(adUnitIdentifier: placementId ?? "", configuration: config)
     adView.delegate = context.coordinator
 

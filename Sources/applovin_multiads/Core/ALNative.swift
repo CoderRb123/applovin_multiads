@@ -8,7 +8,6 @@ struct AlNativeUIWrapper: UIViewRepresentable
   func makeUIView(context: Context) -> MAAdView
   {
       var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.nativeId
-      placementId = "eecb2efaf3030f95"
     let adView = MAAdView(adUnitIdentifier: placementId ?? "", adFormat: MAAdFormat.mrec)
      adView.delegate = context.coordinator
      adView.backgroundColor = .clear

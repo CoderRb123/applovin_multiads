@@ -34,7 +34,6 @@ public class ALReward : UIViewController, @preconcurrency  MARewardedAdDelegate
     public func didLoad(_ ad: MAAd)
   {
       var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.rewardId
-      placementId = "0971e0e0696bce3e"
       rewardedAd.show(forPlacement: placementId)
       retryAttempt = 0
   }

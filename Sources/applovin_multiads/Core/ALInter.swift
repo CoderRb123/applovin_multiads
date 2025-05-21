@@ -23,7 +23,6 @@ public class ALInter: UIViewController, @preconcurrency MAAdDelegate
     public func createInterstitialAd()
   {
     var placementId: String? = ServerConfig.sharedInstance.adNetworkIds?["applovin"]?.interId
-    placementId = "dd6ae7075e4cbfb9"
     interstitialAd = MAInterstitialAd(adUnitIdentifier: placementId ?? "")
     interstitialAd.delegate = self
     // Load the first ad

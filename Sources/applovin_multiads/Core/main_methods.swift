@@ -26,7 +26,7 @@ public class MainMethods  {
 
         }
         let settings = ALSdk.shared().settings
-        settings.termsAndPrivacyPolicyFlowSettings.isEnabled = true
+        settings.termsAndPrivacyPolicyFlowSettings.isEnabled = false
         settings.termsAndPrivacyPolicyFlowSettings.termsOfServiceURL = URL(string: "https://dailyrewardlinks.com/about-us")
         settings.termsAndPrivacyPolicyFlowSettings.privacyPolicyURL = URL(string: "https://dailyrewardlinks.com/privacy-policy")
         ALSdk.shared().initialize(with: initConfig) { sdkConfig in
