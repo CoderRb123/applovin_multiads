@@ -19,7 +19,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "applovin_multiads",
-            dependencies: ["MultiAdsInterface","AppLovinSDKMultiads"],
+            dependencies: ["MultiAdsInterface","AppLovinSDKMultiads","AppLovinMediationFacebookAdapter","AppLovinMediationGoogleAdapter","AppLovinMediationUnityAdsAdapter"],
 //            resources: [
 //             .process("Resources")
 //           ]
@@ -28,6 +28,15 @@ let package = Package(
             .binaryTarget(
              name: "AppLovinSDKMultiads",
              path: "./Sources/AppLovinSDK.xcframework"),
+            .binaryTarget(
+             name: "AppLovinMediationFacebookAdapter",
+             path: "./Sources/AppLovinMediationFacebookAdapter.xcframework"),
+        .binaryTarget(
+             name: "AppLovinMediationGoogleAdapter",
+             path: "./Sources/AppLovinMediationGoogleAdapter.xcframework"),
+        .binaryTarget(
+             name: "AppLovinMediationUnityAdsAdapter",
+             path: "./Sources/AppLovinMediationUnityAdsAdapter.xcframework"),
 
 
     ]
