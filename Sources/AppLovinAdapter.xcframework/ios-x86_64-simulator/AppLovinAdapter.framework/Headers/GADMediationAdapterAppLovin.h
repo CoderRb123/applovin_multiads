@@ -1,4 +1,4 @@
-// Copyright 2018 Google LLC
+// Copyright 2018 Google Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,29 +32,12 @@ typedef NS_ENUM(NSInteger, GADMAdapterAppLovinErrorCode) {
   /// Bid token is empty.
   GADMAdapterAppLovinErrorEmptyBidToken = 107,
   /// Unsupported ad format.
-  GADMAdapterAppLovinErrorUnsupportedAdFormat = 108,
-  // Error codes 109, 110, and 111 were previous removed.
-
-  /// User is a child.
-  ///
-  /// Do not call AppLovin SDK if the user is a child. Adapter will respond with this error code
-  /// if adapter is requested to initialize, load ad or collect signals when user is a child.
-  ///
-  /// Starting with AppLovin SDK 13.0.0, AppLovin no longer supports child user flags and you may
-  /// not initialize or use the AppLovin SDK in connection with a "child" as defined under
-  /// applicable laws. For more information, see AppLovin's documentation on <a
-  /// href="https://developers.applovin.com/en/max/android/overview/privacy/#children">Prohibition
-  /// on Children's Data or Using the Services for Children or Apps Exclusively Targeted to
-  /// Children</a>.
-  GADMAdapterAppLovinErrorChildUser = 112,
-
-  /// AppLovin SDK shared instance hasn't been initialized.
-  GADMAdapterAppLovinErrorAppLovinSDKNotInitialized = 113,
-
-  /// AppLovin SDK fails to return bid token with an error message.
-  GADMAdapterAppLovinErrorFailedToReturnBidToken = 114
+  GADMAdapterAppLovinErrorUnsupportedAdFormat = 108
+  // Next ID = 111
 };
 
 @interface GADMediationAdapterAppLovin : NSObject <GADRTBAdapter>
+
+@property(class, nonatomic, strong, readonly) ALSdkSettings *SDKSettings;
 
 @end

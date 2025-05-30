@@ -1,4 +1,4 @@
-// Copyright 2018 Google LLC
+// Copyright 2017 Google Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,13 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <GoogleMobileAds/GoogleMobileAds.h>
-#import <AppLovinSDK/AppLovinSDK.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface GADMAdapterAppLovinExtras : NSObject<GADAdNetworkExtras>
-
-/// Use this to mute audio for video ads. Must be set on each ad request.
-@property(nonatomic, assign) BOOL muteAudio __deprecated_msg(
-    "The `muteAudio` property is deprecated, use GADMobileAds.sharedInstance.applicationMuted instead.");
-
-@end
+/// Import all your public header files here.
+#import <AppLovinAdapter/GADMAdapterAppLovinExtras.h>
+#import <AppLovinAdapter/GADMediationAdapterAppLovin.h>
