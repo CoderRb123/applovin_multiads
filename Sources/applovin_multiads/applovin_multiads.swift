@@ -11,6 +11,7 @@ import AppLovinSDK
 public class AppLovingNetworkInterface : @preconcurrency NetworkInterface{
     
     public init() {}
+    
     @MainActor public func initNetwork(onSdkInitialized: @escaping () -> Void) -> Bool {
         ALPrivacySettings.setDoNotSell(true)
 
