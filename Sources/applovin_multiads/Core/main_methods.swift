@@ -17,6 +17,8 @@ public class MainMethods  {
     @MainActor static var shared: MainMethods = MainMethods()
 
     public func initAlSdk(sdkKey: String, onSdkInit : @escaping () -> Void) {
+        ALSdk.shared().settings.isVerboseLoggingEnabled = true
+
         let initConfig = ALSdkInitializationConfiguration(sdkKey: sdkKey) { builder in
 
           builder.mediationProvider = ALMediationProviderMAX
@@ -34,6 +36,8 @@ public class MainMethods  {
             onSdkInit()
             print("AppLovin Sdk Configured")
             print(sdkConfig.description)
+            ALSdk.shared().showMediationDebugger()
+
           }
     }
 }
