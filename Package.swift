@@ -12,29 +12,38 @@ let package = Package(
             targets: ["applovin_multiads"]),
     ],
     dependencies : [
-        .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",from: "1.1.7"),
+        .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",branch: "main"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "applovin_multiads",
-            dependencies: ["MultiAdsInterface","AppLovinSDKMultiads","AppLovinMediationFacebookAdapter","AppLovinMediationUnityAdsAdapter"],
-//            resources: [
-//             .process("Resources")
-//           ]
+            dependencies: [
+                "MultiAdsInterface",
+                "AppLovinSDKMultiads",
+                "AppLovinMediationFacebookAdapter",
+                "AppLovinMediationUnityAdsAdapter",
+                "AppLovinMediationGoogleAdapter"
+            ],
         ),
       
             .binaryTarget(
-             name: "AppLovinSDKMultiads",
-             path: "./Sources/AppLovinSDK.xcframework"),
+               name: "AppLovinSDKMultiads",
+               path: "./Sources/AppLovinSDK.xcframework"
+             ),
             .binaryTarget(
-             name: "AppLovinMediationFacebookAdapter",
-             path: "./Sources/AppLovinMediationFacebookAdapter.xcframework"),
-        
+               name: "AppLovinMediationFacebookAdapter",
+               path: "./Sources/AppLovinMediationFacebookAdapter.xcframework"
+            ),
+           .binaryTarget(
+              name: "AppLovinMediationUnityAdsAdapter",
+              path: "./Sources/AppLovinMediationUnityAdsAdapter.xcframework"
+           ),
         .binaryTarget(
-             name: "AppLovinMediationUnityAdsAdapter",
-             path: "./Sources/AppLovinMediationUnityAdsAdapter.xcframework"),
+           name: "AppLovinMediationGoogleAdapter",
+           path: "./Sources/AppLovinMediationGoogleAdapter.xcframework"
+        ),
 
 
     ]

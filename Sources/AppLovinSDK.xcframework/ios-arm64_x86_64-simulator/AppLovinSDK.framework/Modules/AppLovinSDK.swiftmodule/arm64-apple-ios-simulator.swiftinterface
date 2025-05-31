@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 @_exported import AppLovinSDK
 import Foundation
+import StoreKit
 import Swift
 import _Concurrency
 import _StringProcessing
@@ -105,6 +106,7 @@ extension AppLovinSDK.ALMediationAdapter {
   public func log(signalEvent: AppLovinSDK.LogEvent.Signal, appending suffix: Swift.String = "")
   public func log(adEvent: AppLovinSDK.LogEvent.Ad, id: Swift.String? = nil, adFormat: AppLovinSDK.MAAdFormat, appending suffix: Swift.String = "")
 }
+postfix operator ~
 extension Swift.String {
   public var formattedValueLog: Swift.String {
     get

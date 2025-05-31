@@ -5,6 +5,16 @@
     "printedName": "TopLevel",
     "children": [
       {
+        "kind": "Import",
+        "name": "StoreKit",
+        "printedName": "StoreKit",
+        "declKind": "Import",
+        "moduleName": "AppLovinSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "AdapterDelegate",
         "printedName": "AdapterDelegate",
@@ -3191,6 +3201,26 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "StoreKit",
+        "printedName": "StoreKit",
+        "declKind": "Import",
+        "moduleName": "AppLovinSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "OperatorDecl",
+        "name": "~",
+        "printedName": "~",
+        "declKind": "PostfixOperator",
+        "moduleName": "AppLovinSDK",
+        "declAttributes": [
+          "Postfix"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "ALMediationAdapter",
         "printedName": "ALMediationAdapter",
@@ -4599,6 +4629,27 @@
       "offset": 3938,
       "length": 2,
       "value": "\"\""
+    },
+    {
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/SDK-iOS\/iOS-SDK\/sdk\/Private\/StoreKitAppTransaction.swift",
+      "kind": "StringLiteral",
+      "offset": 519,
+      "length": 21,
+      "value": "\"AppLovinSDK.AppTransactionWrapper\""
+    },
+    {
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/SDK-iOS\/iOS-SDK\/sdk\/Private\/StoreKitAppTransaction.swift",
+      "kind": "StringLiteral",
+      "offset": 773,
+      "length": 25,
+      "value": "\"AppLovinSDK.VerificationResultWrapper\""
+    },
+    {
+      "filePath": "\/usr\/local\/var\/jenkins\/workspace\/Mobile-iOS-SDK\/SDK-iOS\/iOS-SDK\/sdk\/Private\/StoreKitAppTransaction.swift",
+      "kind": "StringLiteral",
+      "offset": 194,
+      "length": 22,
+      "value": "\"AppLovinSDK.StoreKitAppTransaction\""
     }
   ]
 }
