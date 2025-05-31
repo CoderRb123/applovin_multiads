@@ -24,7 +24,6 @@ let package = Package(
                 "AppLovinSDKMultiads",
                 "AppLovinMediationUnityAdsAdapter",
                 "AppLovinMediationGoogleAdapter",
-                "AppLovinGoogleAdapter"
             ],
         ),
       
@@ -40,11 +39,7 @@ let package = Package(
         .binaryTarget(
            name: "AppLovinMediationGoogleAdapter",
            path: "./Sources/AppLovinMediationGoogleAdapter.xcframework"
-        ),.binaryTarget(
-           name: "AppLovinGoogleAdapter",
-           path: "./Sources/AppLovinAdapter.xcframework"
         ),
-
 
     ]
 )
