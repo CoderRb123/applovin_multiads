@@ -22,7 +22,6 @@ let package = Package(
             dependencies: [
                 "MultiAdsInterface",
                 "AppLovinSDKMultiads",
-                "AppLovinMediationFacebookAdapter",
                 "AppLovinMediationUnityAdsAdapter",
                 "AppLovinMediationGoogleAdapter"
             ],
@@ -32,10 +31,7 @@ let package = Package(
                name: "AppLovinSDKMultiads",
                path: "./Sources/AppLovinSDK.xcframework"
              ),
-            .binaryTarget(
-               name: "AppLovinMediationFacebookAdapter",
-               path: "./Sources/AppLovinMediationFacebookAdapter.xcframework"
-            ),
+           
            .binaryTarget(
               name: "AppLovinMediationUnityAdsAdapter",
               path: "./Sources/AppLovinMediationUnityAdsAdapter.xcframework"
