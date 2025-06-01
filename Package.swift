@@ -26,28 +26,28 @@ let package = Package(
         "MultiAdsInterface",
         "AppLovinSDKMultiads",
         //Google Adapter
-        "GoogleMobileAdsAD",
-        "AppLovinMediationGoogleAdapter",
-        "UserMessagingPlatformAD",
-                
+//        "GoogleMobileAdsAD",
+//        "AppLovinMediationGoogleAdapter",
+//        "UserMessagingPlatformAD",
+//                
       ]
     ),
-    .binaryTarget(
-      name: "UserMessagingPlatformAD",
-      path: "./Sources/UserMessagingPlatform.xcframework"
-    ),
-    .binaryTarget(
-      name: "GoogleMobileAdsAD",
-      path: "./Sources/GoogleMobileAds.xcframework"
-    ),
+//    .binaryTarget(
+//      name: "UserMessagingPlatformAD",
+//      path: "./Sources/UserMessagingPlatform.xcframework"
+//    ),
+//    .binaryTarget(
+//      name: "GoogleMobileAdsAD",
+//      path: "./Sources/GoogleMobileAds.xcframework"
+//    ),
     .binaryTarget(
       name: "AppLovinSDKMultiads",
       path: "./Sources/AppLovinSDK.xcframework"
     ),
-    .binaryTarget(
-      name: "AppLovinMediationGoogleAdapter",
-      path: "./Sources/AppLovinMediationGoogleAdapter.xcframework"
-    ),
+//    .binaryTarget(
+//      name: "AppLovinMediationGoogleAdapter",
+//      path: "./Sources/AppLovinMediationGoogleAdapter.xcframework"
+//    ),
 
   ]
 )
